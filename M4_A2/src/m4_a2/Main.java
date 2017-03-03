@@ -1,6 +1,3 @@
-/**
- * test comment
- */
 package m4_a2;
 
 import java.awt.EventQueue;
