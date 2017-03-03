@@ -6,6 +6,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -108,6 +109,11 @@ public class Main
 				about.setSize(new Dimension(frame.getWidth() - 20, frame.getHeight() - 20));
 				about.setVisible(true);	
 				about.setLocation(frame.getX() + 10, frame.getY() + 10);
+				
+				about.setTitle("About");
+				JPanel main = new JPanel();
+				main.setBackground(Color.WHITE);
+				about.add(main);
 			}
 		});
 		mntmAbout.setIcon(new ImageIcon(Main.class.getResource("/file.png")));
