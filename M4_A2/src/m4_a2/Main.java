@@ -138,25 +138,21 @@ public class Main
 						case ("Logo1"):
 						{
 							lblNewLabel.setIcon(new ImageIcon(Main.class.getResource("/logo1.png")));
-							lblNewLabel.setBackground(SystemColor.window);
 							break;
 						}
 						case ("Logo2"):
 						{
 							lblNewLabel.setIcon(new ImageIcon(Main.class.getResource("/logo2.png")));
-							lblNewLabel.setBackground(SystemColor.window);
 							break;
 						}
 						case ("Logo3"):
 						{
 							lblNewLabel.setIcon(new ImageIcon(Main.class.getResource("/logo3.png")));
-							lblNewLabel.setBackground(SystemColor.window);
 							break;
 						}
 						case ("Logo4"):
 						{
 							lblNewLabel.setIcon(new ImageIcon(Main.class.getResource("/logo4.png")));
-							lblNewLabel.setBackground(SystemColor.window);
 							break;
 						}
 						default:
