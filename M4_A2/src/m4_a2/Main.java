@@ -79,6 +79,12 @@ public class Main
 		menuBar.add(mnFile);
 
 		JMenuItem mntmExit = new JMenuItem("Exit");
+		mntmExit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				System.exit(0);
+			}
+		});
 		mntmExit.setIcon(new ImageIcon(Main.class.getResource("/javax/swing/plaf/metal/icons/ocean/close.gif")));
 		mnFile.add(mntmExit);
 
@@ -92,9 +98,10 @@ public class Main
 			{
 				UIManager.put("OptionPane.background", new ColorUIResource(239, 239, 127));
 				UIManager.put("Panel.background", new ColorUIResource(239, 239, 127));
-				JOptionPane.showMessageDialog(frame, "Welcome to my app.\n\nThis app is an "
-						+ "introduction to working\nwith GUIs for CS 1410, taken Spring\nsemester "
-						+ "of 2017 with Professor\nRobert Baird.");
+				JOptionPane.showMessageDialog(frame,
+						"Welcome to my app.\n\nThis app is an "
+								+ "introduction to working\nwith GUIs for CS 1410, taken Spring\nsemester "
+								+ "of 2017 with Professor\nRobert Baird.");
 			}
 		});
 		mntmWelcome.setIcon(new ImageIcon(Main.class.getResource("/information.png")));
@@ -105,15 +112,10 @@ public class Main
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				JFrame about = new JFrame();
-				about.setSize(new Dimension(frame.getWidth() - 20, frame.getHeight() - 20));
-				about.setVisible(true);	
-				about.setLocation(frame.getX() + 10, frame.getY() + 10);
-				
-				about.setTitle("About");
-				JPanel main = new JPanel();
-				main.setBackground(Color.WHITE);
-				about.add(main);
+				AboutWindow about = new AboutWindow();
+				JFrame aboutFrame = about.getFrame();
+				aboutFrame.setBounds(frame.getX() + 10, frame.getY() + 10, frame.getWidth() - 20, frame.getHeight() - 20);
+				aboutFrame.setVisible(true);
 			}
 		});
 		mntmAbout.setIcon(new ImageIcon(Main.class.getResource("/file.png")));
@@ -377,6 +379,5 @@ public class Main
 				}
 			}
 		});
-
 	}
 }
