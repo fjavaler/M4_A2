@@ -271,6 +271,8 @@ public class Main
 		{
 			public void actionPerformed(ActionEvent e)
 			{
+				UIManager.put("OptionPane.background", new ColorUIResource(SystemColor.window));
+				UIManager.put("Panel.background", new ColorUIResource(SystemColor.window));
 				JOptionPane.showMessageDialog(frame, "New button pressed", "Confirmation",
 						JOptionPane.INFORMATION_MESSAGE);
 			}
@@ -285,6 +287,8 @@ public class Main
 		{
 			public void actionPerformed(ActionEvent e)
 			{
+				UIManager.put("OptionPane.background", new ColorUIResource(SystemColor.window));
+				UIManager.put("Panel.background", new ColorUIResource(SystemColor.window));
 				JOptionPane.showMessageDialog(frame, "Save button pressed", "Confirmation",
 						JOptionPane.INFORMATION_MESSAGE);
 			}
@@ -298,6 +302,8 @@ public class Main
 		{
 			public void actionPerformed(ActionEvent e)
 			{
+				UIManager.put("OptionPane.background", new ColorUIResource(SystemColor.window));
+				UIManager.put("Panel.background", new ColorUIResource(SystemColor.window));
 				JOptionPane.showMessageDialog(frame, "Delete button pressed", "Confirmation",
 						JOptionPane.INFORMATION_MESSAGE);
 			}
