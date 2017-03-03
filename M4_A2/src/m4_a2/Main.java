@@ -115,6 +115,12 @@ public class Main
 		textField_2.setBounds(252, 22, 92, 26);
 		frame.getContentPane().add(textField_2);
 
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setBackground(SystemColor.window);
+		lblNewLabel.setIcon(new ImageIcon(Main.class.getResource("/logo1.png")));
+		lblNewLabel.setBounds(302, 60, 138, 138);
+		frame.getContentPane().add(lblNewLabel);
+		
 		JComboBox<String> comboBox = new JComboBox<String>();
 		comboBox.addItem("Logo1");
 		comboBox.addItem("Logo2");
@@ -131,27 +137,27 @@ public class Main
 					{
 						case ("Logo1"):
 						{
-							System.out.println("Logo1 selected");
+							lblNewLabel.setIcon(new ImageIcon(Main.class.getResource("/logo1.png")));
 							break;
 						}
 						case ("Logo2"):
 						{
-							System.out.println("Logo2 selected");
+							lblNewLabel.setIcon(new ImageIcon(Main.class.getResource("/logo2.png")));
 							break;
 						}
 						case ("Logo3"):
 						{
-							System.out.println("Logo3 selected");
+							lblNewLabel.setIcon(new ImageIcon(Main.class.getResource("/logo3.png")));
 							break;
 						}
 						case ("Logo4"):
 						{
-							System.out.println("Logo4 selected");
+							lblNewLabel.setIcon(new ImageIcon(Main.class.getResource("/logo4.png")));
 							break;
 						}
 						default:
 						{
-							System.out.println("error");
+							lblNewLabel.setIcon(null);
 							break;
 						}
 					}
@@ -314,13 +320,6 @@ public class Main
 				}
 			}
 		});
-
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setBackground(SystemColor.window);
-		lblNewLabel.setIcon(new ImageIcon(Main.class.getResource("/logo1.png")));
-		lblNewLabel.setBounds(302, 60, 138, 138);
-		frame.add(lblNewLabel);
-//		frame.getContentPane().add(lblNewLabel);
 		
 	}
 }
