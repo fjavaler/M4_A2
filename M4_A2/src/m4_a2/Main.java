@@ -1,11 +1,11 @@
 package m4_a2;
 
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -118,88 +118,207 @@ public class Main
 		comboBox.addItem("Logo1");
 		comboBox.addItem("Logo2");
 		comboBox.addItem("Logo3");
-		comboBox.addItem("Logo4");		
+		comboBox.addItem("Logo4");
 		comboBox.setSelectedIndex(0);
 		comboBox.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				switch ("" + comboBox.getSelectedItem())
+				if (e.getSource() instanceof JComboBox)
 				{
-					case ("Logo1"):
+					switch ("" + comboBox.getSelectedItem())
 					{
-						
-					}
-					case ("Logo2"):
-					{
-						
-					}
-					case ("Logo3"):
-					{
-						
-					}
-					case ("Logo4"):
-					{
-						
-					}
-					default:
-					{
-						
+						case ("Logo1"):
+						{
+							System.out.println("Logo1 selected");
+							break;
+						}
+						case ("Logo2"):
+						{
+							System.out.println("Logo2 selected");
+							break;
+						}
+						case ("Logo3"):
+						{
+							System.out.println("Logo3 selected");
+							break;
+						}
+						case ("Logo4"):
+						{
+							System.out.println("Logo4 selected");
+							break;
+						}
+						default:
+						{
+							System.out.println("error");
+							break;
+						}
 					}
 				}
 			}
 		});
 		comboBox.setBounds(375, 23, 92, 25);
 		frame.getContentPane().add(comboBox);
-		
+
 		JRadioButton rdbtnBlack = new JRadioButton("Black");
 		rdbtnBlack.setBounds(16, 70, 92, 23);
 		frame.getContentPane().add(rdbtnBlack);
-		
+		rdbtnBlack.setSelected(true);
+		rdbtnBlack.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				lblFirstName.setForeground(Color.BLACK);
+				lblLastName.setForeground(Color.BLACK);
+				lblCellPhone.setForeground(Color.BLACK);
+			}
+		});
+
 		JRadioButton rdbtnRed = new JRadioButton("Red");
 		rdbtnRed.setForeground(Color.RED);
 		rdbtnRed.setBounds(16, 105, 92, 23);
 		frame.getContentPane().add(rdbtnRed);
-		
+		rdbtnRed.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				lblFirstName.setForeground(Color.RED);
+				lblLastName.setForeground(Color.RED);
+				lblCellPhone.setForeground(Color.RED);
+			}
+		});
+
 		JRadioButton rdbtnGreen = new JRadioButton("Green");
 		rdbtnGreen.setForeground(Color.GREEN);
 		rdbtnGreen.setBounds(16, 140, 92, 23);
 		frame.getContentPane().add(rdbtnGreen);
-		
+		rdbtnGreen.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				lblFirstName.setForeground(Color.GREEN);
+				lblLastName.setForeground(Color.GREEN);
+				lblCellPhone.setForeground(Color.GREEN);
+			}
+		});
+
 		JRadioButton rdbtnBlue = new JRadioButton("Blue");
 		rdbtnBlue.setForeground(Color.BLUE);
 		rdbtnBlue.setBounds(16, 175, 92, 23);
 		frame.getContentPane().add(rdbtnBlue);
-		
+		rdbtnBlue.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				lblFirstName.setForeground(Color.BLUE);
+				lblLastName.setForeground(Color.BLUE);
+				lblCellPhone.setForeground(Color.BLUE);
+			}
+		});
+
+		ButtonGroup radioGroup = new ButtonGroup();
+		radioGroup.add(rdbtnBlack);
+		radioGroup.add(rdbtnRed);
+		radioGroup.add(rdbtnGreen);
+		radioGroup.add(rdbtnBlue);
+
 		JButton btnNew = new JButton("New");
 		btnNew.setIcon(new ImageIcon(Main.class.getResource("/com/sun/java/swing/plaf/windows/icons/File.gif")));
 		btnNew.setBounds(16, 209, 125, 41);
 		frame.getContentPane().add(btnNew);
-		
+
 		JButton btnSave = new JButton("Save");
 		btnSave.setIcon(new ImageIcon(Main.class.getResource("/com/sun/java/swing/plaf/windows/icons/FloppyDrive.gif")));
 		btnSave.setBounds(185, 209, 125, 41);
 		frame.getContentPane().add(btnSave);
-		
+
 		JButton btnDelete = new JButton("Delete");
 		btnDelete.setIcon(new ImageIcon(Main.class.getResource("/javax/swing/plaf/metal/icons/ocean/close.gif")));
 		btnDelete.setBounds(356, 209, 125, 41);
 		frame.getContentPane().add(btnDelete);
-		
+
+		// Bold and Italic fonts
+		Font bold = new Font("Lucida Grande", Font.BOLD, 13);
+		Font italic = new Font("Lucida Grande", Font.ITALIC, 13);
+		Font boldAndItalic = new Font("Lucida Grande", Font.BOLD | Font.ITALIC, 13);
+		Font normal = new Font("Lucida Grande", Font.PLAIN, 13);
+
 		JCheckBox chckbxBold = new JCheckBox("Bold");
 		chckbxBold.setFont(new Font("Lucida Grande", Font.BOLD, 13));
 		chckbxBold.setBounds(98, 70, 128, 23);
 		frame.getContentPane().add(chckbxBold);
-		
+
 		JCheckBox chckbxItalic = new JCheckBox("Italic");
 		chckbxItalic.setFont(new Font("Lucida Grande", Font.ITALIC, 13));
 		chckbxItalic.setBounds(98, 105, 128, 23);
 		frame.getContentPane().add(chckbxItalic);
-		
+		chckbxItalic.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				if (!chckbxBold.isSelected() && chckbxItalic.isSelected())
+				{
+					lblFirstName.setFont(italic);
+					lblLastName.setFont(italic);
+					lblCellPhone.setFont(italic);
+				}
+				else if (chckbxBold.isSelected() && chckbxItalic.isSelected())
+				{
+					lblFirstName.setFont(boldAndItalic);
+					lblLastName.setFont(boldAndItalic);
+					lblCellPhone.setFont(boldAndItalic);
+				}
+				else if (chckbxBold.isSelected() && !chckbxItalic.isSelected())
+				{
+					lblFirstName.setFont(bold);
+					lblLastName.setFont(bold);
+					lblCellPhone.setFont(bold);
+				}
+				else
+				{
+					lblFirstName.setFont(normal);
+					lblLastName.setFont(normal);
+					lblCellPhone.setFont(normal);
+				}
+			}
+		});
+
+		chckbxBold.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				if (!chckbxItalic.isSelected() && chckbxBold.isSelected())
+				{
+					lblFirstName.setFont(bold);
+					lblLastName.setFont(bold);
+					lblCellPhone.setFont(bold);
+				}
+				else if (chckbxItalic.isSelected() && chckbxBold.isSelected())
+				{
+					lblFirstName.setFont(boldAndItalic);
+					lblLastName.setFont(boldAndItalic);
+					lblCellPhone.setFont(boldAndItalic);
+				}
+				else if(chckbxItalic.isSelected() && !chckbxBold.isSelected())
+				{
+					lblFirstName.setFont(italic);
+					lblLastName.setFont(italic);
+					lblCellPhone.setFont(italic);
+				}
+				else
+				{
+					lblFirstName.setFont(normal);
+					lblLastName.setFont(normal);
+					lblCellPhone.setFont(normal);
+				}
+			}
+		});
+
 		JLabel lblNewLabel = new JLabel("");
 		ImageIcon image = new ImageIcon("src/logo1.png");
 		lblNewLabel.setIcon(image);
 		lblNewLabel.setBounds(252, 58, 215, 138);
 		frame.getContentPane().add(lblNewLabel);
+		
 	}
 }
