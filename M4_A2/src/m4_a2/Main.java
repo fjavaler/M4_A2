@@ -17,6 +17,7 @@ import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import java.awt.Font;
+import java.awt.SystemColor;
 
 public class Main
 {
@@ -315,10 +316,11 @@ public class Main
 		});
 
 		JLabel lblNewLabel = new JLabel("");
-		ImageIcon image = new ImageIcon("src/logo1.png");
-		lblNewLabel.setIcon(image);
-		lblNewLabel.setBounds(252, 58, 215, 138);
-		frame.getContentPane().add(lblNewLabel);
+		lblNewLabel.setBackground(SystemColor.window);
+		lblNewLabel.setIcon(new ImageIcon(Main.class.getResource("/logo1.png")));
+		lblNewLabel.setBounds(302, 60, 138, 138);
+		frame.add(lblNewLabel);
+//		frame.getContentPane().add(lblNewLabel);
 		
 	}
 }
