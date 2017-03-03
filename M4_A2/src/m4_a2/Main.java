@@ -5,15 +5,20 @@ import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.UIManager;
+import javax.swing.plaf.ColorUIResource;
 import javax.swing.JComboBox;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JRadioButton;
 import java.awt.Color;
+import java.awt.Dimension;
+
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import java.awt.Font;
@@ -80,10 +85,31 @@ public class Main
 		menuBar.add(mnHelp);
 
 		JMenuItem mntmWelcome = new JMenuItem("Welcome");
+		mntmWelcome.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				UIManager.put("OptionPane.background", new ColorUIResource(239, 239, 127));
+				UIManager.put("Panel.background", new ColorUIResource(239, 239, 127));
+				JOptionPane.showMessageDialog(frame, "Welcome to my app.\n\nThis app is an "
+						+ "introduction to working\nwith GUIs for CS 1410, taken Spring\nsemester "
+						+ "of 2017 with Professor\nRobert Baird.");
+			}
+		});
 		mntmWelcome.setIcon(new ImageIcon(Main.class.getResource("/information.png")));
 		mnHelp.add(mntmWelcome);
 
 		JMenuItem mntmAbout = new JMenuItem("About");
+		mntmAbout.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				JFrame about = new JFrame();
+				about.setSize(new Dimension(frame.getWidth() - 20, frame.getHeight() - 20));
+				about.setVisible(true);	
+				about.setLocation(frame.getX() + 10, frame.getY() + 10);
+			}
+		});
 		mntmAbout.setIcon(new ImageIcon(Main.class.getResource("/file.png")));
 		mnHelp.add(mntmAbout);
 		frame.getContentPane().setLayout(null);
@@ -120,7 +146,7 @@ public class Main
 		lblNewLabel.setIcon(new ImageIcon(Main.class.getResource("/logo1.png")));
 		lblNewLabel.setBounds(302, 60, 138, 138);
 		frame.getContentPane().add(lblNewLabel);
-		
+
 		JComboBox<String> comboBox = new JComboBox<String>();
 		comboBox.addItem("Logo1");
 		comboBox.addItem("Logo2");
@@ -233,16 +259,41 @@ public class Main
 		btnNew.setIcon(new ImageIcon(Main.class.getResource("/com/sun/java/swing/plaf/windows/icons/File.gif")));
 		btnNew.setBounds(16, 209, 125, 41);
 		frame.getContentPane().add(btnNew);
+		btnNew.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				JOptionPane.showMessageDialog(frame, "New button pressed", "Confirmation",
+						JOptionPane.INFORMATION_MESSAGE);
+			}
+		});
 
 		JButton btnSave = new JButton("Save");
-		btnSave.setIcon(new ImageIcon(Main.class.getResource("/com/sun/java/swing/plaf/windows/icons/FloppyDrive.gif")));
+		btnSave.setIcon(
+				new ImageIcon(Main.class.getResource("/com/sun/java/swing/plaf/windows/icons/FloppyDrive.gif")));
 		btnSave.setBounds(185, 209, 125, 41);
 		frame.getContentPane().add(btnSave);
+		btnSave.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				JOptionPane.showMessageDialog(frame, "Save button pressed", "Confirmation",
+						JOptionPane.INFORMATION_MESSAGE);
+			}
+		});
 
 		JButton btnDelete = new JButton("Delete");
 		btnDelete.setIcon(new ImageIcon(Main.class.getResource("/javax/swing/plaf/metal/icons/ocean/close.gif")));
 		btnDelete.setBounds(356, 209, 125, 41);
 		frame.getContentPane().add(btnDelete);
+		btnDelete.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				JOptionPane.showMessageDialog(frame, "Delete button pressed", "Confirmation",
+						JOptionPane.INFORMATION_MESSAGE);
+			}
+		});
 
 		// Bold and Italic fonts
 		Font bold = new Font("Lucida Grande", Font.BOLD, 13);
@@ -306,7 +357,7 @@ public class Main
 					lblLastName.setFont(boldAndItalic);
 					lblCellPhone.setFont(boldAndItalic);
 				}
-				else if(chckbxItalic.isSelected() && !chckbxBold.isSelected())
+				else if (chckbxItalic.isSelected() && !chckbxBold.isSelected())
 				{
 					lblFirstName.setFont(italic);
 					lblLastName.setFont(italic);
@@ -320,6 +371,6 @@ public class Main
 				}
 			}
 		});
-		
+
 	}
 }
