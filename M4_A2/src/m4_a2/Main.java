@@ -83,7 +83,7 @@ public class Main
 		mnHelp.add(mntmWelcome);
 
 		JMenuItem mntmAbout = new JMenuItem("About");
-		mntmAbout.setIcon(new ImageIcon(Main.class.getResource("/com/sun/java/swing/plaf/gtk/icons/File.gif")));
+		mntmAbout.setIcon(new ImageIcon(Main.class.getResource("src/file.png")));
 		mnHelp.add(mntmAbout);
 		frame.getContentPane().setLayout(null);
 
