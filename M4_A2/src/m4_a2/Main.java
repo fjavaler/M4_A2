@@ -79,11 +79,11 @@ public class Main
 		menuBar.add(mnHelp);
 
 		JMenuItem mntmWelcome = new JMenuItem("Welcome");
-		mntmWelcome.setIcon(new ImageIcon(Main.class.getResource("/com/sun/java/swing/plaf/motif/icons/Inform.gif")));
+		mntmWelcome.setIcon(new ImageIcon(Main.class.getResource("/information.png")));
 		mnHelp.add(mntmWelcome);
 
 		JMenuItem mntmAbout = new JMenuItem("About");
-		mntmAbout.setIcon(new ImageIcon(Main.class.getResource("/com/sun/java/swing/plaf/gtk/icons/File.gif")));
+		mntmAbout.setIcon(new ImageIcon(Main.class.getResource("/file.png")));
 		mnHelp.add(mntmAbout);
 		frame.getContentPane().setLayout(null);
 
