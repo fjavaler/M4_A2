@@ -3,11 +3,9 @@ package m4_a2;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import java.awt.SystemColor;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.UIManager;
-import java.awt.Toolkit;
 import java.awt.Window.Type;
 
 public class AboutWindow
